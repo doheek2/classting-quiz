@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useUnmount } from 'react-use'
 
@@ -46,11 +45,12 @@ const SolveQuiz = () => {
             onChange={radioBtnChangeHandler}
             disabled={isShowBtn}
           />
+          {/* eslint-disable-next-line react/no-danger */}
           <label htmlFor={`${i}`} dangerouslySetInnerHTML={{ __html: code }} />
         </div>
       )
     }
-
+    // eslint-disable-next-line react/no-danger
     return <p className={styles.question} dangerouslySetInnerHTML={{ __html: code }} />
   }
 
