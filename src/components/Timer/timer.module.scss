@@ -1,0 +1,8 @@
+@use '/src/styles/constants/colors';
+
+.stopWatchContainer {
+  span {
+    color: colors.$FONT1;
+    letter-spacing: 0.5px;
+  }
+}
