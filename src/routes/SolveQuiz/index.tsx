@@ -72,8 +72,6 @@ const SolveQuiz = () => {
     }
   }, [quizList, quizNum])
 
-  console.log(quizList)
-
   return (
     <Box>
       <article className={styles.container}>
