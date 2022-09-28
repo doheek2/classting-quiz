@@ -1,81 +1,68 @@
 @use '/src/styles/constants/colors';
 @import 'https://fonts.googleapis.com/css2?family=Secular+One&display=swap';
 
-.boxContainer {
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 800;
+    color: colors.$TITLE;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  p {
+    margin: 10px 0;
+    color: colors.$FONT1;
+  }
+}
+
+.buttonContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80vw;
-  min-width: 250px;
-  max-width: 500px;
-  height: 50vh;
-  background-color: colors.$WHITE;
-  border-radius: 30px;
 
-  .headerContainer {
+  button {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h3 {
-      font-family: 'Secular One', sans-serif;
-      font-weight: 800;
-      color: colors.$TITLE;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    p {
-      margin: 10px 0;
-      color: colors.$FONT1;
-    }
-  }
-
-  .buttonContainer {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 20vw;
+    min-width: 200px;
+    margin-top: 20px;
+    color: colors.$WHITE;
+    background-color: colors.$PURPLE1;
+    border-radius: 15px;
 
-    button {
+    &:hover {
+      background-color: colors.$PURPLE3;
+      div { background-color: colors.$PURPLE4; }
+    }
+
+    div {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 20vw;
-      min-width: 200px;
-      margin-top: 20px;
-      color: colors.$WHITE;
-      background-color: colors.$PURPLE1;
-      border-radius: 15px;
+      margin-left: 10px;
+      background-color: colors.$PURPLE2;
+      border-radius: 50%;
 
-      &:hover {
-        background-color: colors.$PURPLE3;
-        div { background-color: colors.$PURPLE4; }
-      }
-
-      div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 10px;
-        background-color: colors.$PURPLE2;
-        border-radius: 50%;
-
-        svg {
-          color: colors.$WHITE;
-        }
+      svg {
+        color: colors.$WHITE;
       }
     }
+  }
 
-    .link {
-      margin-top: 20px;
-      color: colors.$FONT1;
+  .link {
+    margin-top: 20px;
+    color: colors.$FONT1;
 
-      &:hover {
-        text-decoration: underline;
-        text-underline-position: under;
-      }
+    &:hover {
+      text-decoration: underline;
+      text-underline-position: under;
     }
   }
 }
@@ -85,8 +72,6 @@
     h3 { font-size: 35px; }
     p { font-size: 15px; }
   }
-
-  .boxContainer { height: 300px; }
 
   .buttonContainer {
     button {
