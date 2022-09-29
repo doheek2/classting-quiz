@@ -2,19 +2,23 @@ import { Link, useNavigate } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 import { useSetRecoilState } from 'recoil'
 
-import { isShowAnswerState, isShowBtnState } from 'store/atom'
+import { isShowAnswerState, isShowBtnState, timerMinState, timerSecState } from 'store/atom'
 
 import Box from 'components/Box'
 import styles from './main.module.scss'
 
 const Main = () => {
   const navigate = useNavigate()
+  const setMin = useSetRecoilState(timerMinState)
+  const setSec = useSetRecoilState(timerSecState)
   const setIsShowBtn = useSetRecoilState(isShowBtnState)
   const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
 
   const startBtnClickHandler = () => {
     setIsShowBtn(false)
     setIsShowAnswer(false)
+    setMin('00')
+    setSec('00')
     navigate('/solveQuiz')
   }
 
@@ -27,7 +31,7 @@ const Main = () => {
         </article>
         <article className={styles.buttonContainer}>
           <button type='button' onClick={startBtnClickHandler}>
-            시작하기
+            퀴즈 풀기
             <div>
               <FiArrowRight />
             </div>
