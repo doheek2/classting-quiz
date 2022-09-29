@@ -1,13 +1,22 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
+import { useSetRecoilState } from 'recoil'
+
+import { isShowAnswerState, isShowBtnState } from 'store/atom'
 
 import Box from 'components/Box'
-
 import styles from './main.module.scss'
 
 const Main = () => {
   const navigate = useNavigate()
-  const startBtnClickHandler = () => navigate('/solveQuiz')
+  const setIsShowBtn = useSetRecoilState(isShowBtnState)
+  const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
+
+  const startBtnClickHandler = () => {
+    setIsShowBtn(false)
+    setIsShowAnswer(false)
+    navigate('/solveQuiz')
+  }
 
   return (
     <Box>
