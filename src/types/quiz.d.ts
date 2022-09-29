@@ -8,3 +8,15 @@ interface IQuiz {
 }
 
 export interface IQuizList extends Array<IQuiz> {}
+
+interface IResolveQuiz {
+  id: number
+  category: string
+  question: string
+  answerList: string[]
+  correct_answer: string
+  selected_answer: string
+  isCorrect: boolean
+}
+
+export interface IResolveQuizList extends Array<IResolveQuiz> {}
