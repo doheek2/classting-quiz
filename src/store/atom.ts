@@ -1,10 +1,5 @@
 import { atom } from 'recoil'
-import { IQuizList, IResolveQuizList } from 'types/quiz'
-
-export const quizListState = atom<IQuizList>({
-  key: 'quizListState',
-  default: [],
-})
+import { IResolveQuizList } from 'types/quiz'
 
 export const isShowBtnState = atom({
   key: 'isShowBtnState',
