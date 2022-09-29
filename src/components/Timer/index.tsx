@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+
+import { timerMinState, timerSecState } from 'store/atom'
 import styles from './timer.module.scss'
 
 const Timer = () => {
-  const [min, setMin] = useState('00')
-  const [sec, setSec] = useState('00')
+  const [min, setMin] = useRecoilState(timerMinState)
+  const [sec, setSec] = useRecoilState(timerSecState)
 
   useEffect(() => {
     const timer = (type: string, time: string) => {
@@ -37,7 +40,7 @@ const Timer = () => {
         timer('sec', sec)
       }
     }, 1000)
-  }, [min, sec])
+  }, [min, sec, setMin, setSec])
 
   return (
     <div className={styles.stopWatchContainer}>
