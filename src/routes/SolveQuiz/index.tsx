@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { getQuizList } from 'utils/api'
 import { isShowAnswerState, isShowBtnState, selectedAnswerState, solveQuizListState } from 'store/atom'
+import { IQuizList } from 'types/quiz'
 
 import Box from 'components/Box'
 import LoaderIcon from 'components/LoaderIcon'
@@ -10,9 +12,9 @@ import Timer from 'components/Timer'
 import RadioBtn from 'components/RadioBtn'
 
 import styles from './solveQuiz.module.scss'
-import { IQuizList } from 'types/quiz'
 
 const SolveQuiz = () => {
+  const navigate = useNavigate()
   const selectedAnswer = useRecoilValue(selectedAnswerState)
   const [solveQuizList, setSolveQuizList] = useRecoilState(solveQuizListState)
   const [isShowBtn, setIsShowBtn] = useRecoilState(isShowBtnState)
@@ -37,9 +39,14 @@ const SolveQuiz = () => {
     })
 
     setSolveQuizList(tmpArr)
-    setQuizNum((prev) => prev + 1)
-    setIsShowBtn(false)
-    setIsShowAnswer(false)
+
+    if (quizNum !== 9) {
+      setQuizNum((prev) => prev + 1)
+      setIsShowBtn(false)
+      setIsShowAnswer(false)
+    } else {
+      navigate('/resultQuiz')
+    }
   }
 
   const stringToHTML = (code: string, type: string, i = 0) => {
@@ -100,7 +107,7 @@ const SolveQuiz = () => {
                   </>
                 )}
                 <button type='button' onClick={nextBtnClickHandler}>
-                  Next
+                  {quizNum === 9 ? 'Results' : 'Next'}
                 </button>
               </footer>
             )}
