@@ -1,0 +1,52 @@
+@use '/src/styles/constants/colors';
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  &:hover {
+    background-color: colors.$BACKGROUND;
+    border-radius: 10px;
+  }
+
+  input {
+    vertical-align: middle;
+    border: 2px solid colors.$GRAY2;
+    border-radius: 50%;
+
+    &:checked {
+      border: 4px solid colors.$TITLE;
+    }
+  }
+
+  label {
+    margin-left: 7px;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .radioContainer {
+    input {
+      width: 15px;
+      height: 15px;
+    }
+
+    label {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .radioContainer {
+    input {
+      width: 18px;
+      height: 18px;
+    }
+
+    label {
+      font-size: 18px;
+    }
+  }
+}
