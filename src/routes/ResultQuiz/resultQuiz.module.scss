@@ -1,0 +1,71 @@
+@use '/src/styles/constants/colors';
+
+.resultContainer {
+  display: flex;
+  width: 65vw;
+  min-width: 250px;
+  padding: 20px;
+
+  .inforContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 150px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          color: colors.$FONT1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .resultContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .chartContainer {
+      position: relative;
+      margin-bottom: 18vh;
+    }
+
+    .inforContainer {
+      position: absolute;
+      width: 45vw;
+      height: 11vh;
+      margin-top: 45vw;
+
+      ul {
+        height: 9vh;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .resultContainer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    .inforContainer {
+      width: 20vw;
+      height: 15vh;
+    }
+
+    ul {
+      height: 13vh;
+    }
+  }
+}
