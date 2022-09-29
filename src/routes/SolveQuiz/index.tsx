@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { getQuizList } from 'utils/api'
-import { isShowAnswerState, isShowBtnState, quizListState, selectedAnswerState, solveQuizListState } from 'store/atom'
+import { isShowAnswerState, isShowBtnState, selectedAnswerState, solveQuizListState } from 'store/atom'
 
 import Box from 'components/Box'
 import LoaderIcon from 'components/LoaderIcon'
@@ -10,14 +10,15 @@ import Timer from 'components/Timer'
 import RadioBtn from 'components/RadioBtn'
 
 import styles from './solveQuiz.module.scss'
+import { IQuizList } from 'types/quiz'
 
 const SolveQuiz = () => {
   const selectedAnswer = useRecoilValue(selectedAnswerState)
-  const [quizList, setQuizList] = useRecoilState(quizListState)
   const [solveQuizList, setSolveQuizList] = useRecoilState(solveQuizListState)
   const [isShowBtn, setIsShowBtn] = useRecoilState(isShowBtnState)
   const [isShowAnswer, setIsShowAnswer] = useRecoilState(isShowAnswerState)
 
+  const [quizList, setQuizList] = useState<IQuizList>([])
   const [answerList, setAnswerList] = useState<string[]>([])
   const [quizNum, setQuizNum] = useState(0)
 
@@ -43,7 +44,7 @@ const SolveQuiz = () => {
 
   const stringToHTML = (code: string, type: string, i = 0) => {
     if (type === 'answer') {
-      return <RadioBtn i={i} code={code} quizNum={quizNum} />
+      return <RadioBtn i={i} code={code} correct={quizList[quizNum].correct_answer} />
     }
     if (type === 'correct') {
       // eslint-disable-next-line react/no-danger
