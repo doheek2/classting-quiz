@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { useUnmount } from 'react-use'
 
 import { IQuizList } from 'types/quiz'
 import { getQuizList } from 'utils/api'
@@ -54,14 +53,14 @@ const SolveQuiz = () => {
     return <p className={styles.question} dangerouslySetInnerHTML={{ __html: code }} />
   }
 
-  useUnmount(() => {
+  useEffect(() => {
     const getQuizHandler = async () => {
       const quiz = await getQuizList()
       setQuizList(quiz)
       setIsLoading(true)
     }
     getQuizHandler()
-  })
+  }, [])
 
   useEffect(() => {
     if (quizList.length !== 0) {

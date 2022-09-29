@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-import styles from './Routes.module.scss'
 
 import Main from './Main'
 import SolveQuiz from './SolveQuiz'
 import ConfirmQuiz from './ConfirmQuiz'
+
+import styles from './Routes.module.scss'
 
 const App = () => {
   return (
