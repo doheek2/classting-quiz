@@ -1,29 +1,27 @@
 import { ChangeEvent } from 'react'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { isShowAnswerState, isShowBtnState, quizListState, selectedAnswerState } from 'store/atom'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { isShowAnswerState, isShowBtnState, selectedAnswerState } from 'store/atom'
 
 import styles from './radioBtn.module.scss'
 
 interface IProps {
   i: number
   code: string
-  quizNum: number
+  correct: string
 }
 
-const RadioBtn = ({ i, code, quizNum }: IProps) => {
+const RadioBtn = ({ i, code, correct }: IProps) => {
   const key = `answer${i}`
-  const quizList = useRecoilValue(quizListState)
   const [isShowBtn, setIsShowBtn] = useRecoilState(isShowBtnState)
-  const [selectedAnswer, setSelectedAnswer] = useRecoilState(selectedAnswerState)
+  const setSelectedAnswer = useSetRecoilState(selectedAnswerState)
   const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
 
   const radioBtnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSelectedAnswer(e.currentTarget.value)
-
-    if (selectedAnswer !== quizList[quizNum].correct_answer) setIsShowAnswer(true)
+    if (e.currentTarget.value !== correct) setIsShowAnswer(true)
     else setIsShowAnswer(false)
 
     setIsShowBtn(true)
+    setSelectedAnswer(e.currentTarget.value)
   }
 
   return (
