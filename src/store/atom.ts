@@ -20,3 +20,13 @@ export const selectedAnswerState = atom({
   key: 'selectedAnswerState',
   default: '',
 })
+
+export const timerMinState = atom({
+  key: 'timerMinState',
+  default: '00',
+})
+
+export const timerSecState = atom({
+  key: 'timerSecState',
+  default: '00',
+})
