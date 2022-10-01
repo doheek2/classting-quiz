@@ -10,7 +10,7 @@ import styles from './confirmQuiz.module.scss'
 
 const ConfirmQuiz = () => {
   const storage = store.get('quizList')
-  console.log(storage)
+
   return (
     <Box>
       <>
