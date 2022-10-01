@@ -2,19 +2,21 @@ import { Link, useNavigate } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 import { useSetRecoilState } from 'recoil'
 
-import { isShowAnswerState, isShowBtnState, timerMinState, timerSecState } from 'store/atom'
+import { isShowAnswerState, isShowBtnState, solveQuizListState, timerMinState, timerSecState } from 'store/atom'
 
 import Box from 'components/Box'
 import styles from './main.module.scss'
 
 const Main = () => {
   const navigate = useNavigate()
+  const setSolveQuizList = useSetRecoilState(solveQuizListState)
   const setMin = useSetRecoilState(timerMinState)
   const setSec = useSetRecoilState(timerSecState)
   const setIsShowBtn = useSetRecoilState(isShowBtnState)
   const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
 
   const startBtnClickHandler = () => {
+    setSolveQuizList([])
     setIsShowBtn(false)
     setIsShowAnswer(false)
     setMin('00')
