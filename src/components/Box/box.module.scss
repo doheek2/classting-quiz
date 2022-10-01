@@ -15,3 +15,7 @@
 @media screen and (max-width: 625px) {
   .boxContainer { height: 400px; }
 }
+
+@media screen and (min-width: 625px) {
+  .boxContainer { min-height: 400px; }
+}
