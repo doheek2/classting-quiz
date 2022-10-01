@@ -6,6 +6,10 @@
   min-width: 250px;
   padding: 20px;
 
+  .chartContainer {
+    min-width: 200px;
+  }
+
   .inforContainer {
     display: flex;
     flex-direction: column;
@@ -16,14 +20,21 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
 
-      li {
-        display: flex;
-        justify-content: space-between;
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-weight: 500;
+      color: colors.$WHITE;
+      background-color: colors.$PURPLE1;
+      border-radius: 15px;
 
-        span {
-          color: colors.$FONT1;
-        }
+      &:hover {
+        background-color: colors.$PURPLE3;
+        div { background-color: colors.$PURPLE4; }
       }
     }
   }
@@ -37,17 +48,30 @@
 
     .chartContainer {
       position: relative;
-      margin-bottom: 18vh;
+      width: 40vw;
+      margin-bottom: 25vh;
     }
 
     .inforContainer {
       position: absolute;
       width: 45vw;
-      height: 11vh;
-      margin-top: 45vw;
+      height: 21vh;
+      margin-top: 160px;
 
       ul {
-        height: 9vh;
+        height: 13vh;
+      }
+
+      .btnContainer {
+        margin-top: 10px;
+
+        button {
+          height: 30px;
+        }
+
+        .saveBtn {
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -57,15 +81,37 @@
   .resultContainer {
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    min-height: 150px;
+
+    .chartContainer {
+      width: 60vh;
+    }
 
     .inforContainer {
       width: 20vw;
-      height: 15vh;
+      margin-left: 7vw;
     }
 
     ul {
-      height: 13vh;
+      height: 16vh;
+    }
+
+    .btnContainer {
+      height: 23vh;
+
+      button {
+        min-width: 140px;
+        height: 45px;
+        min-height: 35px;
+      }
+    }
+
+    .homeBtn {
+      margin-top: 50px;
+    }
+
+    .saveBtn {
+      margin-top: 30px;
     }
   }
 }
