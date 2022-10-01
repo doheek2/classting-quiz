@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { getQuizList } from 'utils/api'
-import { isShowAnswerState, isShowBtnState, selectedAnswerState, solveQuizListState } from 'store/atom'
+import {
+  isShowAnswerState,
+  isShowBtnState,
+  selectedAnswerState,
+  solveQuizListState,
+  timerMinState,
+  timerSecState,
+  timeState,
+} from 'store/atom'
 import { IQuizList } from 'types/quiz'
 
 import Box from 'components/Box'
@@ -15,6 +23,9 @@ import styles from './solveQuiz.module.scss'
 
 const SolveQuiz = () => {
   const navigate = useNavigate()
+  const setTime = useSetRecoilState(timeState)
+  const timerMin = useRecoilValue(timerMinState)
+  const timerSec = useRecoilValue(timerSecState)
   const selectedAnswer = useRecoilValue(selectedAnswerState)
   const [solveQuizList, setSolveQuizList] = useRecoilState(solveQuizListState)
   const [isShowBtn, setIsShowBtn] = useRecoilState(isShowBtnState)
@@ -45,6 +56,7 @@ const SolveQuiz = () => {
       setIsShowBtn(false)
       setIsShowAnswer(false)
     } else {
+      setTime([timerMin, timerSec])
       navigate('/resultQuiz')
     }
   }
