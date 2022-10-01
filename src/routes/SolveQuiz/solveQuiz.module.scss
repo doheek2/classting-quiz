@@ -8,6 +8,7 @@
   justify-content: center;
   width: 70vw;
   min-width: 250px;
+  min-height: 370px;
   padding: 20px;
 
   header {
@@ -105,6 +106,8 @@
     .question { font-size: 17px; }
 
     footer {
+      min-width: 180px;
+
       p {
         font-size: 15px;
       }
