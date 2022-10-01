@@ -30,3 +30,8 @@ export const timerSecState = atom({
   key: 'timerSecState',
   default: '00',
 })
+
+export const timeState = atom({
+  key: 'timeState',
+  default: ['00', '00'],
+})
