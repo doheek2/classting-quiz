@@ -1,7 +1,34 @@
-.circle {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 8px;
-  border-radius: 30%;
+@use '/src/styles/constants/colors';
+
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+
+  .circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 30%;
+  }
+
+  span {
+    color: colors.$FONT1;
+  }
+
+  .text {
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .labelContainer {
+    span {
+      font-size: 14px;
+    }
+
+    .text {
+      margin-top: 2px;
+    }
+  }
 }

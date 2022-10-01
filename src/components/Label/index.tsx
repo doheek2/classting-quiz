@@ -8,12 +8,12 @@ interface IProps {
 
 const Label = ({ color, name, text }: IProps) => {
   return (
-    <li>
+    <li className={styles.labelContainer}>
       <div>
         <div className={styles.circle} style={{ backgroundColor: color }} />
         <span>{name}</span>
       </div>
-      <span>{text}</span>
+      <span className={styles.text}>{text}</span>
     </li>
   )
 }
