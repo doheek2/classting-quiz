@@ -1,0 +1,56 @@
+@use '/src/styles/constants/colors';
+
+.noteContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 17px;
+
+  .goBackBtn {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    display: flex;
+    align-items: center;
+    color: colors.$FONT1;
+
+    span {
+      margin-left: 3px;
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .noteContainer {
+    .goBackBtn {
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .noteContainer {
+    .goBackBtn {
+      svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      span {
+        font-size: 17px;
+      }
+    }
+  }
+}
