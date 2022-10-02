@@ -1,0 +1,29 @@
+@use '/src/styles/constants/colors';
+
+.goBackBtn {
+  position: absolute;
+  top: 23px;
+  left: 23px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  color: colors.$FONT1;
+}
+
+@media screen and (max-width: 625px) {
+  .goBackBtn {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .goBackBtn {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
