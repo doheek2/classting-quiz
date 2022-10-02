@@ -8,9 +8,9 @@ import store from 'storejs'
 import { IQuizResultList } from 'types/quiz'
 import Box from 'components/Box'
 import NoQuiz from 'components/NoQuiz'
+import DeleteBtnModal from 'components/DeleteBtnModal'
 
 import styles from './confirmQuiz.module.scss'
-import DeleteBtnModal from 'components/DeleteBtnModal'
 
 const ConfirmQuiz = () => {
   const navigate = useNavigate()
@@ -18,8 +18,8 @@ const ConfirmQuiz = () => {
   const [isRemoveBtnModalOpen, setIsRemoveBtnModalOpen] = useState(false)
   const [selectedQuizNum, setSelectedQuizNum] = useState(0)
 
-  const noteBtnClickHandler = () => {
-    navigate('/wrongAnswerNote')
+  const noteBtnClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    navigate('/wrongAnswerNote', { state: e.currentTarget.value })
   }
   const deleteBtnClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
     setSelectedQuizNum(Number(e.currentTarget.value))
