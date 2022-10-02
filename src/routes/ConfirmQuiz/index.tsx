@@ -1,27 +1,44 @@
-import store from 'storejs'
+import { MouseEvent, useState } from 'react'
 import { VictoryPie } from 'victory'
+import { useNavigate } from 'react-router-dom'
 import { HiClock, HiCalendar, HiCheckCircle } from 'react-icons/hi'
 import { MdDelete, MdNote } from 'react-icons/md'
+import store from 'storejs'
 
-import { IQuizResult } from 'types/quiz'
+import { IQuizResultList } from 'types/quiz'
 import Box from 'components/Box'
+import NoQuiz from 'components/NoQuiz'
 
 import styles from './confirmQuiz.module.scss'
+import DeleteBtnModal from 'components/DeleteBtnModal'
 
 const ConfirmQuiz = () => {
-  const storage = store.get('quizList')
+  const navigate = useNavigate()
+  const storage: IQuizResultList = store.get('quizList')
+  const [isRemoveBtnModalOpen, setIsRemoveBtnModalOpen] = useState(false)
+  const [selectedQuizNum, setSelectedQuizNum] = useState(0)
+
+  const noteBtnClickHandler = () => {
+    navigate('/wrongAnswerNote')
+  }
+  const deleteBtnClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    setSelectedQuizNum(Number(e.currentTarget.value))
+    setIsRemoveBtnModalOpen(true)
+  }
+
+  const homeBtnClickHandler = () => navigate('/')
 
   return (
     <Box>
       <>
-        {storage === undefined && <p>이전 퀴즈가 없습니다.</p>}
+        {storage === undefined && <NoQuiz />}
         {storage !== undefined && (
           <article className={styles.confirmContainer}>
             <header>
               <h3>이전 퀴즈</h3>
             </header>
             <ul className={styles.ulContainer}>
-              {storage.map((v: IQuizResult, i: number) => {
+              {storage.map((v, i) => {
                 const key = `quizList${i}`
                 const correct = v.data.filter((x) => x.isCorrect === true).length
                 const data = [
@@ -60,11 +77,11 @@ const ConfirmQuiz = () => {
                       />
                     </main>
                     <footer className={styles.btnContainer}>
-                      <button type='button' className={styles.noteBtn}>
+                      <button type='button' className={styles.noteBtn} value={v.id} onClick={noteBtnClickHandler}>
                         <MdNote />
                         <span>오답노트</span>
                       </button>
-                      <button type='button' className={styles.deleteBtn}>
+                      <button type='button' className={styles.deleteBtn} value={v.id} onClick={deleteBtnClickHandler}>
                         <MdDelete />
                         <span>삭제하기</span>
                       </button>
@@ -73,7 +90,10 @@ const ConfirmQuiz = () => {
                 )
               })}
             </ul>
-            <button type='button'>메인 화면으로 돌아가기</button>
+            {isRemoveBtnModalOpen && <DeleteBtnModal num={selectedQuizNum} setIsModalOpen={setIsRemoveBtnModalOpen} />}
+            <button type='button' className={styles.homeBtn} onClick={homeBtnClickHandler}>
+              메인 화면으로 돌아가기
+            </button>
           </article>
         )}
       </>
