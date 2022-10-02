@@ -22,7 +22,7 @@
       justify-content: space-between;
     }
 
-    button {
+    .btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -34,9 +34,39 @@
 
       &:hover {
         background-color: colors.$PURPLE3;
-        div { background-color: colors.$PURPLE4; }
       }
     }
+
+    .disabledBtn {
+      background-color: colors.$GRAY2;
+
+      &:hover {
+        background-color: colors.$GRAY2;
+      }
+    }
+  }
+}
+
+.modalText {
+  font-weight: 600;
+  color: colors.$FONT1;
+}
+
+.modalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  max-width: 200px;
+  height: 30px;
+  margin-top: 15px;
+  font-weight: 500;
+  color: colors.$WHITE;
+  background-color: colors.$PURPLE1;
+  border-radius: 15px;
+
+  &:hover {
+    background-color: colors.$PURPLE3;
   }
 }
 
@@ -65,7 +95,7 @@
       .btnContainer {
         margin-top: 10px;
 
-        button {
+        .btn {
           height: 30px;
         }
 
@@ -74,6 +104,10 @@
         }
       }
     }
+  }
+
+  .modalText {
+    font-size: 15px;
   }
 }
 
@@ -98,12 +132,12 @@
 
     .btnContainer {
       height: 23vh;
+    }
 
-      button {
-        min-width: 140px;
-        height: 45px;
-        min-height: 35px;
-      }
+    .btn {
+      min-width: 140px;
+      height: 45px;
+      min-height: 35px;
     }
 
     .homeBtn {
@@ -113,5 +147,9 @@
     .saveBtn {
       margin-top: 30px;
     }
+  }
+
+  .modalText {
+    font-size: 18px;
   }
 }
