@@ -21,9 +21,11 @@ interface IResolveQuiz {
 
 export interface IResolveQuizList extends Array<IResolveQuiz> {}
 
-export interface IQuizResult {
+interface IQuizResult {
   data: [IResolveQuiz]
   date: string
   id: number
   time: string
 }
+
+export interface IQuizResultList extends Array<IQuizResult> {}
