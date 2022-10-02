@@ -130,6 +130,21 @@
       }
     }
   }
+
+  .homeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-top: 15px;
+    color: colors.$WHITE;
+    background-color: colors.$PURPLE1;
+    border-radius: 15px;
+
+    &:hover {
+      background-color: colors.$PURPLE3;
+    }
+  }
 }
 
 @media screen and (max-width: 625px) {
@@ -141,6 +156,10 @@
     .listContainer {
       height: 10vh;
     }
+
+    .homeBtn {
+      width: 100%;
+    }
   }
 }
 
@@ -148,6 +167,11 @@
   .confirmContainer {
     h3 {
       font-size: 20px;
+    }
+
+    .homeBtn {
+      width: 15vw;
+      min-width: 180px;
     }
   }
 }
