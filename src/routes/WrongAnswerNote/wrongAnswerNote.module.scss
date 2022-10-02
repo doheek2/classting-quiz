@@ -5,36 +5,136 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
   padding: 17px;
 
-  .goBackBtn {
-    position: absolute;
-    top: 17px;
-    left: 17px;
+  .header {
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    color: colors.$FONT1;
+    width: 100%;
+    margin-top: 10px;
 
-    span {
-      margin-left: 3px;
-      font-weight: 500;
+    h3 {
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .quizBtn {
+      position: absolute;
+      top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: colors.$PURPLE1;
+      letter-spacing: 0.3px;
+      border: 1px solid colors.$PURPLE1;
+      border-radius: 20px;
+
+      svg {
+        color: colors.$PURPLE1;
+      }
+    }
+
+    .listBtnContainer {
+      position: absolute;
+      top: 70px;
+      display: flex;
+      flex-direction: column;
+      background-color: colors.$WHITE;
+      border: 1px solid colors.$PURPLE3;
+      border-radius: 20px;
+
+      button {
+        color: colors.$PURPLE3;
+      }
+    }
+  }
+
+  .contentsContainer {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 60px;
+
+    p {
+      color: colors.$FONT1;
+    }
+
+    .question {
+      font-weight: 600;
+    }
+
+    .answerContainer {
+      span {
+        color: colors.$FONT1;
+      }
+
+      .correct {
+        font-weight: 600;
+        color: colors.$PURPLE2;
+      }
+
+      .incorrect {
+        font-weight: 600;
+        color: colors.$RED1;
+      }
+    }
+
+    .resultContainer {
+      p {
+        margin-top: 5px;
+        font-weight: 600;
+      }
+
+      .correctResult { color: colors.$PURPLE1; }
+      .incorrectResult { color: colors.$RED1; }
     }
   }
 }
 
 @media screen and (max-width: 625px) {
   .noteContainer {
-    .goBackBtn {
-      svg {
-        width: 14px;
-        height: 14px;
+    max-height: 500px;
+
+    .header {
+      h3 {
+        font-size: 16px;
       }
 
-      span {
-        font-size: 14px;
+      .quizBtn {
+        right: 0;
+        width: 80px;
+        height: 30px;
+        font-size: 13px;
+
+        svg {
+          margin-left: 9px;
+        }
+      }
+
+      .listBtnContainer {
+        right: 0;
+
+        button {
+          width: 90px;
+          height: 30px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .contentsContainer {
+      .question {
+        margin-bottom: 10px;
+        font-size: 17px;
+      }
+
+      .answerContainer {
+        span {
+          font-size: 15px;
+        }
       }
     }
   }
@@ -42,14 +142,51 @@
 
 @media screen and (min-width: 625px) {
   .noteContainer {
-    .goBackBtn {
-      svg {
-        width: 17px;
-        height: 17px;
+    .header {
+      h3 {
+        font-size: 20px;
       }
 
-      span {
-        font-size: 17px;
+      .quizBtn {
+        right: 20px;
+        width: 120px;
+        height: 37px;
+        font-size: 15px;
+
+        svg {
+          margin-left: 9px;
+        }
+      }
+
+      .listBtnContainer {
+        right: 20px;
+
+        button {
+          width: 120px;
+          height: 30px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .contentsContainer {
+      .question {
+        margin-bottom: 15px;
+        font-size: 21px;
+      }
+
+      .answerContainer {
+        span {
+          font-size: 18px;
+        }
+      }
+
+      .resultContainer {
+        margin-top: 15px;
+
+        p {
+          font-size: 18px;
+        }
       }
     }
   }
