@@ -34,6 +34,7 @@ const SolveQuiz = () => {
   const [quizList, setQuizList] = useState<IQuizList>([])
   const [answerList, setAnswerList] = useState<string[]>([])
   const [quizNum, setQuizNum] = useState(0)
+  const [isBtnCheckedList, setIsBtnCheckedList] = useState([false, false, false, false])
 
   const nextBtnClickHandler = () => {
     const tmpArr = [...solveQuizList]
@@ -50,6 +51,7 @@ const SolveQuiz = () => {
     })
 
     setSolveQuizList(tmpArr)
+    setIsBtnCheckedList([false, false, false, false])
 
     if (quizNum !== 9) {
       setQuizNum((prev) => prev + 1)
@@ -63,7 +65,15 @@ const SolveQuiz = () => {
 
   const stringToHTML = (code: string, type: string, i = 0) => {
     if (type === 'answer') {
-      return <RadioBtn i={i} code={code} correct={quizList[quizNum].correct_answer} />
+      return (
+        <RadioBtn
+          i={i}
+          code={code}
+          correct={quizList[quizNum].correct_answer}
+          isBtnCheckedList={isBtnCheckedList}
+          setIsBtnCheckedList={setIsBtnCheckedList}
+        />
+      )
     }
     if (type === 'correct') {
       // eslint-disable-next-line react/no-danger
