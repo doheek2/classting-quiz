@@ -4,6 +4,7 @@ import Main from './Main'
 import SolveQuiz from './SolveQuiz'
 import ResultQuiz from './ResultQuiz'
 import ConfirmQuiz from './ConfirmQuiz'
+import WrongAnswerNote from './WrongAnswerNote'
 
 import styles from './Routes.module.scss'
 
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='solveQuiz' element={<SolveQuiz />} />
         <Route path='resultQuiz' element={<ResultQuiz />} />
         <Route path='confirmQuiz' element={<ConfirmQuiz />} />
+        <Route path='wrongAnswerNote' element={<WrongAnswerNote />} />
         <Route path='*' element={<div>404</div>} />
       </Routes>
     </main>
