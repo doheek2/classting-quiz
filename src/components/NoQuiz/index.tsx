@@ -2,23 +2,17 @@ import { useSetRecoilState } from 'recoil'
 import { useNavigate } from 'react-router-dom'
 import { FcVlc } from 'react-icons/fc'
 
-import { isShowAnswerState, isShowBtnState, solveQuizListState, timerMinState, timerSecState } from 'store/atom'
+import { solveQuizListState, timeState } from 'store/atom'
 import styles from './noQuiz.module.scss'
 
 const NoQuiz = () => {
   const navigate = useNavigate()
-  const setMin = useSetRecoilState(timerMinState)
-  const setSec = useSetRecoilState(timerSecState)
-  const setIsShowBtn = useSetRecoilState(isShowBtnState)
-  const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
+  const setTime = useSetRecoilState(timeState)
   const setSolveQuizList = useSetRecoilState(solveQuizListState)
 
   const goQuizBtnClickHandler = () => {
     setSolveQuizList([])
-    setMin('00')
-    setSec('00')
-    setIsShowBtn(false)
-    setIsShowAnswer(false)
+    setTime(['00', '00'])
     navigate('/solveQuiz')
   }
 

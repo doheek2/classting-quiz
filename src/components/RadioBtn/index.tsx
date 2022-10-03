@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { isShowAnswerState, isShowBtnState, selectedAnswerState } from 'store/atom'
+import { selectedAnswerState } from 'store/atom'
 
 import styles from './radioBtn.module.scss'
 
@@ -10,13 +10,21 @@ interface IProps {
   correct: string
   isBtnCheckedList: boolean[]
   setIsBtnCheckedList: Dispatch<SetStateAction<boolean[]>>
+  setIsShowBtn: Dispatch<SetStateAction<boolean>>
+  setIsShowAnswer: Dispatch<SetStateAction<boolean>>
 }
 
-const RadioBtn = ({ i, code, correct, isBtnCheckedList, setIsBtnCheckedList }: IProps) => {
+const RadioBtn = ({
+  i,
+  code,
+  correct,
+  isBtnCheckedList,
+  setIsBtnCheckedList,
+  setIsShowBtn,
+  setIsShowAnswer,
+}: IProps) => {
   const key = `answer${i}`
-  const setIsShowBtn = useSetRecoilState(isShowBtnState)
   const setSelectedAnswer = useSetRecoilState(selectedAnswerState)
-  const setIsShowAnswer = useSetRecoilState(isShowAnswerState)
 
   const radioBtnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.value !== correct) setIsShowAnswer(true)

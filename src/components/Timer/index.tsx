@@ -1,52 +1,61 @@
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { timerMinState, timerSecState } from 'store/atom'
+import { timeState } from 'store/atom'
 import styles from './timer.module.scss'
 
-const Timer = () => {
-  const [min, setMin] = useRecoilState(timerMinState)
-  const [sec, setSec] = useRecoilState(timerSecState)
+interface IProps {
+  isTimerStop: boolean
+}
+
+const Timer = ({ isTimerStop }: IProps) => {
+  const [time, setTime] = useRecoilState(timeState)
 
   useEffect(() => {
-    const timer = (type: string, time: string) => {
-      const temp = Number(time) + 1
+    const timer = (type: string, num: string) => {
+      const temp = Number(num) + 1
+      const tmpArr = [...time]
       if (temp < 10) {
         switch (type) {
           case 'min':
-            setMin(`0${temp}`)
+            tmpArr[0] = `0${temp}`
             break
           case 'sec':
-            setSec(`0${temp}`)
+            tmpArr[1] = `0${temp}`
             break
         }
       } else {
         switch (type) {
           case 'min':
-            setMin(String(temp))
+            tmpArr[0] = String(temp)
             break
           case 'sec':
-            setSec(String(temp))
+            tmpArr[1] = String(temp)
             break
         }
       }
+      setTime(tmpArr)
     }
 
-    setTimeout(() => {
-      if (sec === '59') {
-        timer('min', min)
-        setSec('00')
+    const timeout = setTimeout(() => {
+      if (time[1] === '59') {
+        timer('min', time[0])
+        const arr = [...time]
+        arr[1] = '00'
+        setTime(arr)
       } else {
-        timer('sec', sec)
+        timer('sec', time[1])
       }
     }, 1000)
-  }, [min, sec, setMin, setSec])
+
+    if (isTimerStop) clearTimeout(timeout)
+  }, [isTimerStop, setTime, time])
 
   return (
     <div className={styles.stopWatchContainer}>
-      <span>{min}</span>
+      <span>{time[0]}</span>
       <span>:</span>
-      <span>{sec}</span>
+      <span>{time[1]}</span>
     </div>
   )
 }
