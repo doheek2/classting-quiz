@@ -16,152 +16,94 @@
 <br/>
 
 # 🗂 프로젝트 소개
-- **개발 기간** 22.09.27 - 22.10.04
+- **개발 기간** 22.09.27 - 22.10.03
 - **프로젝트 개요** <br/>
 본 프로젝트는 클래스팅 과제로, API를 활용해 퀴즈 WebApp을 구현한 프로젝트입니다.
 
 
 <br/>
 
-# 📁 폴더 구조 (test 끝나면 수정하기)
+# 📁 폴더 구조
 <details>
     <summary>펼치기</summary>
-📦src<br/>
- ┣ 📂assets<br/>
- ┃ ┗ 📂svg<br/>
- ┃ ┃ ┣ 📜.DS_Store<br/>
- ┃ ┃ ┣ 📜arrow.svg<br/>
- ┃ ┃ ┣ 📜bell.svg<br/>
- ┃ ┃ ┣ 📜bellpoint.svg<br/>
- ┃ ┃ ┣ 📜bulb.svg<br/>
- ┃ ┃ ┣ 📜caret-down.svg<br/>
- ┃ ┃ ┣ 📜caret-up.svg<br/>
- ┃ ┃ ┣ 📜dashboard.svg<br/>
- ┃ ┃ ┣ 📜gear.svg<br/>
- ┃ ┃ ┣ 📜index.js<br/>
- ┃ ┃ ┣ 📜logo.svg<br/>
- ┃ ┃ ┣ 📜manageAD.svg<br/>
- ┃ ┃ ┣ 📜profile.svg<br/>
- ┃ ┃ ┗ 📜spinner.svg<br/>
- ┣ 📂components<br/>
- ┃ ┣ 📂Dropdown<br/>
- ┃ ┃ ┣ 📜dropdown.module.scss<br/>
- ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┗ 📂LoadingPage<br/>
- ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┗ 📜loadingPage.module.scss<br/>
- ┣ 📂data<br/>
- ┃ ┣ 📜wanted_FE-media-channel-data-set.json<br/>
- ┃ ┣ 📜wanted_FE_ad-list-data-set.json<br/>
- ┃ ┗ 📜wanted_FE_trend-data-set.json<br/>
- ┣ 📂routes<br/>
- ┃ ┣ 📂ADmanaging<br/>
- ┃ ┃ ┣ 📂Card<br/>
- ┃ ┃ ┃ ┣ 📜card.module.scss<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┣ 📜admanaging.module.scss<br/>
- ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┣ 📂Dashboard<br/>
- ┃ ┃ ┣ 📂DailyChart<br/>
- ┃ ┃ ┃ ┣ 📜OneChartStyle.ts<br/>
- ┃ ┃ ┃ ┣ 📜OneDataChart.tsx<br/>
- ┃ ┃ ┃ ┣ 📜TwoDataChart.tsx<br/>
- ┃ ┃ ┃ ┣ 📜XAxis.tsx<br/>
- ┃ ┃ ┃ ┣ 📜dailyChart.module.scss<br/>
- ┃ ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┃ ┗ 📜twoChartStyle.ts<br/>
- ┃ ┃ ┣ 📂DailyMean<br/>
- ┃ ┃ ┃ ┣ 📂DailyMeanItem<br/>
- ┃ ┃ ┃ ┃ ┣ 📂DataList<br/>
- ┃ ┃ ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┃ ┃ ┣ 📂RateContainer<br/>
- ┃ ┃ ┃ ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┃ ┃ ┃ ┗ 📜rateContainer.module.scss<br/>
- ┃ ┃ ┃ ┃ ┣ 📜dailyMeanItem.module.scss<br/>
- ┃ ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┃ ┣ 📜dailyMean.module.scss<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┣ 📂DataFilterButtons<br/>
- ┃ ┃ ┃ ┣ 📂DropdownList<br/>
- ┃ ┃ ┃ ┃ ┣ 📜OneDropDownList.tsx<br/>
- ┃ ┃ ┃ ┃ ┣ 📜TwoDropDownList.tsx<br/>
- ┃ ┃ ┃ ┃ ┣ 📜WeeklyDownList.tsx<br/>
- ┃ ┃ ┃ ┃ ┣ 📜dropdownList.module.scss<br/>
- ┃ ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┃ ┣ 📜DropdownButton.tsx<br/>
- ┃ ┃ ┃ ┣ 📜categoryDict.ts<br/>
- ┃ ┃ ┃ ┣ 📜dropdownButton.module.scss<br/>
- ┃ ┃ ┃ ┣ 📜index.module.scss<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┣ 📂DatePicker<br/>
- ┃ ┃ ┃ ┣ 📂DateRange<br/>
- ┃ ┃ ┃ ┃ ┣ 📜dateRange.module.scss<br/>
- ┃ ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┃ ┣ 📂Label<br/>
- ┃ ┃ ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┃ ┃ ┗ 📜label.module.scss<br/>
- ┃ ┃ ┃ ┣ 📜datePicker.module.scss<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┣ 📂MediaChannelGraph<br/>
- ┃ ┃ ┃ ┣ 📜chartStyle.ts<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┣ 📂MediaChannelTable<br/>
- ┃ ┃ ┃ ┣ 📜companyKRDict.ts<br/>
- ┃ ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┃ ┗ 📜mediaChannelTable.module.scss<br/>
- ┃ ┃ ┣ 📜.DS_Store<br/>
- ┃ ┃ ┣ 📜dashboard.module.scss<br/>
- ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┣ 📂_shared<br/>
- ┃ ┃ ┣ 📂Header<br/>
- ┃ ┃ ┃ ┣ 📜header.module.scss<br/>
- ┃ ┃ ┃ ┗ 📜index.tsx<br/>
- ┃ ┃ ┗ 📂LNB<br/>
- ┃ ┃ ┃ ┣ 📜index.tsx<br/>
- ┃ ┃ ┃ ┗ 📜lnb.module.scss<br/>
- ┃ ┣ 📜.DS_Store<br/>
- ┃ ┣ 📜index.tsx<br/>
- ┃ ┗ 📜routes.module.scss<br/>
- ┣ 📂state<br/>
- ┃ ┣ 📜dashBoard.ts<br/>
- ┃ ┗ 📜dropdown.ts<br/>
- ┣ 📂styles<br/>
- ┃ ┣ 📂base<br/>
- ┃ ┃ ┣ 📜_fonts.scss<br/>
- ┃ ┃ ┣ 📜_more.scss<br/>
- ┃ ┃ ┗ 📜_reset.scss<br/>
- ┃ ┣ 📂constants<br/>
- ┃ ┃ ┗ 📜_colors.scss<br/>
- ┃ ┣ 📂mixins<br/>
- ┃ ┃ ┣ 📜_flexbox.scss<br/>
- ┃ ┃ ┣ 📜_position.scss<br/>
- ┃ ┃ ┣ 📜_responsive.scss<br/>
- ┃ ┃ ┣ 📜_typography.scss<br/>
- ┃ ┃ ┗ 📜_visual.scss<br/>
- ┃ ┣ 📜index.js<br/>
- ┃ ┗ 📜index.scss<br/>
- ┣ 📂types<br/>
- ┃ ┣ 📜adType.d.ts<br/>
- ┃ ┣ 📜channel.d.ts<br/>
- ┃ ┣ 📜daily.d.ts<br/>
- ┃ ┣ 📜dashBoardCategory.d.ts<br/>
- ┃ ┗ 📜dashBoardCategory.ts<br/>
- ┣ 📂utils<br/>
- ┃ ┣ 📜.DS_Store<br/>
- ┃ ┣ 📜dateToKorean.ts<br/>
- ┃ ┣ 📜filterDailyByCategory.ts<br/>
- ┃ ┣ 📜formatConversion.ts<br/>
- ┃ ┣ 📜getBarChartData.ts<br/>
- ┃ ┣ 📜getDailyMean.ts<br/>
- ┃ ┣ 📜getMediaData.ts<br/>
- ┃ ┣ 📜index.ts<br/>
- ┃ ┣ 📜numberToDot.ts<br/>
- ┃ ┗ 📜unitPicker.ts<br/>
- ┣ 📜.DS_Store<br/>
- ┣ 📜index.tsx<br/>
- ┣ 📜react-app-env.d.ts<br/>
- ┣ 📜reportWebVitals.ts<br/>
- ┗ 📜setupTests.ts<br/>
+├─ src
+<br/>│  ├─ global.d.ts<br/>
+│  ├─ index.tsx<br/>
+│  ├─ logo.svg<br/>
+│  ├─ reportWebVitals.ts<br/>
+│  ├─ routes<br/>
+│  │  ├─ Main<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ main.module.scss<br/>
+│  │  ├─ Routes.module.scss<br/>
+│  │  ├─ SolveQuiz<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ solveQuiz.module.scss<br/>
+│  │  ├─ index.tsx<br/>
+│  │  ├─ ConfirmQuiz<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ confirmQuiz.module.scss<br/>
+│  │  ├─ ResultQuiz<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ resultQuiz.module.scss<br/>
+│  │  └─ WrongAnswerNote<br/>
+│  │     ├─ index.tsx<br/>
+│  │     └─ wrongAnswerNote.module.scss<br/>
+│  ├─ setupTests.ts<br/>
+│  ├─ styles<br/>
+│  │  ├─ base<br/>
+│  │  │  ├─ _fonts.scss<br/>
+│  │  │  ├─ _more.scss<br/>
+│  │  │  ├─ _reset.scss<br/>
+│  │  │  └─ https<br/>
+│  │  │     └─ spoqa.github.io<br/>
+│  │  │        └─ spoqa-han-sans<br/>
+│  │  │           └─ css<br/>
+│  │  │              └─ SpoqaHanSansNeo.c<br/>ss
+│  │  ├─ constants<br/>
+│  │  │  └─ _colors.scss<br/>
+│  │  ├─ index.js<br/>
+│  │  └─ index.scss<br/>
+│  ├─ types<br/>
+│  │  └─ quiz.d.ts<br/>
+│  ├─ utils<br/>
+│  │  └─ api.ts<br/>
+│  ├─ components<br/>
+│  │  ├─ Box<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ box.module.scss<br/>
+│  │  ├─ LoaderIcon<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ loaderIcon.module.scss<br/>
+│  │  ├─ Timer<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ timer.module.scss<br/>
+│  │  ├─ RadioBtn<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ radioBtn.module.scss<br/>
+│  │  ├─ Label<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ label.module.scss<br/>
+│  │  ├─ Modal<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ modal.module.scss<br/>
+│  │  ├─ NoQuiz<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ noQuiz.module.scss<br/>
+│  │  ├─ DeleteBtnModal<br/>
+│  │  │  ├─ index.tsx<br/>
+│  │  │  └─ deleteBtnModal.module.scss<br/>
+│  │  └─ GoBackBtn<br/>
+│  │     ├─ index.tsx<br/>
+│  │     └─ goBackBtn.module.scss<br/>
+│  ├─ store<br/>
+│  │  └─ atom.ts<br/>
+│  └─ test<br/>
+│     ├─ Main.test.tsx<br/>
+│     └─ api.test.tsx<br/>
+├─ tsconfig.json<br/>
+├─ yarn.lock<br/>
+└─ README.md<br/>
 </details>
 
 <br/>
